@@ -1,0 +1,44 @@
+### 로그인
+POST {{api}}/login
+Content-Type: application/json
+
+{
+  "userId": "user1",
+  "password": "password1"
+}
+> {%
+    client.global.set("access-token", response.body.accessToken);
+%}
+
+
+### SSE 연결
+POST http://localhost:8080/subscribe
+Authorization: Bearer {{access-token}}
+Accept: text/event-stream
+Cache-Control: no-cache
+
+
+### Push Message
+POST http://localhost:8080/push
+Authorization: Bearer {{access-token}}
+Content-Type: application/json
+
+{
+  "userIds": ["user1", "user2"],
+  "message": "Hello, World!"
+}
+
+
+### Push Message
+POST http://localhost:8080/push
+Authorization: Bearer {{access-token}}
+Content-Type: application/json
+
+{
+  "userIds": ["user3", "user1"],
+  "message": "What's up?"
+}
+
+
+
+

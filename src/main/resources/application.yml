@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: "spring-sse-demo"
+
+jwt:
+  secret: "ENC(dXt7HDQ1AV9xlsPsKdNPm0pu3wML9S60yF8PoG7Y+iQxVvJHscSVCqwwYUnDd5rGNG+iuXsFByOIKfC+/yjKJw==)"
+  token:
+    access-expiration-time: 3600000    # 1??
+    refresh-expiration-time: 604800000   # 7?
