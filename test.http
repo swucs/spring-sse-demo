@@ -12,14 +12,17 @@ Content-Type: application/json
 
 
 ### SSE 연결
-POST http://localhost:8080/subscribe
+POST {{api}}/subscribe
 Authorization: Bearer {{access-token}}
 Accept: text/event-stream
 Cache-Control: no-cache
+Keep-Alive: timeout=60
+Connection: keep-alive
+
 
 
 ### Push Message
-POST http://localhost:8080/push
+POST {{api}}/push
 Authorization: Bearer {{access-token}}
 Content-Type: application/json
 
